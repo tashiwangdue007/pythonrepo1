@@ -1,0 +1,107 @@
+RMAN List Command
+Database
+The LIST command allows the backup data to be listed in the RMAN utility
+
+To list all existing backups use:
+
+RMAN> LIST BACKUP;
+To list all existing database backups use:
+
+RMAN> LIST BACKUP OF DATABASE;
+To list all existing backups of a specific datafile use:
+
+RMAN> LIST BACKUP OF DATAFILE <file#>;
+For example:
+
+RMAN> LIST BACKUP OF DATAFILE 4;
+Alternatively specify the datafile name. For example:
+
+RMAN> LIST BACKUP OF DATAFILE '/u01/app/oradata/TEST/users01.dbf';
+To list all existing archivelog backups use:
+
+RMAN> LIST BACKUP OF ARCHIVELOG ALL;
+To list all existing controfile backups use:
+
+RMAN> LIST BACKUP OF CONTROLFILE;
+To list all existing SPFILE backups use:
+
+RMAN> LIST BACKUP OF SPFILE;
+Archive Logs
+To list all archive logs use:
+
+RMAN> LIST ARCHIVELOG ALL;
+Backup sets
+To list the contents of an individual backup set use:
+
+RMAN> LIST BACKUPSET <key>;
+For example:
+
+RMAN> LIST BACKUPSET 44;
+Datafile Image Copies
+To list all datafile image copies use:
+
+RMAN> LIST DATAFILECOPY ALL;
+To list an individual datafile image copy use:
+
+RMAN> LIST DATAFILECOPY <key>;
+For example:
+
+RMAN> LIST DATAFILECOPY 26;
+Alternatively specify the name of the datafile image copy file:
+
+RMAN> LIST DATAFILECOPY '/u01/app/oracle/copy/users01.dbf';
+Controlfile Image Copies
+To list all controlfile copies use
+
+RMAN> LIST COPY OF CONTROLFILE;
+For example:
+
+RMAN> LIST COPY OF CONTROLFILE;
+
+List of Control File Copies
+===========================
+
+Key     S Completion Time Ckp SCN    Ckp Time
+------- - --------------- ---------- ---------------
+25      A 15-AUG-15       3324254    15-AUG-15
+        Name: /u01/app/oracle/copy/cf_D-TEST_id-2066695660_23qekadv
+        Tag: TAG20150815T001910
+
+20      A 14-AUG-15       3322965    14-AUG-15
+        Name: /u01/app/oracle/copy/cf_D-TEST_id-2066695660_1tqek8bd
+        Tag: TAG20150814T234341
+
+15      A 14-AUG-15       3322589    14-AUG-15
+        Name: /u01/app/oracle/copy/cf_D-TEST_id-2066695660_1nqek7j8
+        Tag: TAG20150814T232907
+To list an individual control file copy use:
+
+RMAN> LIST CONTROLFILECOPY <key>;
+For example:
+
+RMAN> LIST CONTROLFILECOPY 20;
+
+List of Control File Copies
+===========================
+
+Key     S Completion Time Ckp SCN    Ckp Time
+------- - --------------- ---------- ---------------
+20      A 14-AUG-15       3322965    14-AUG-15
+        Name: /u01/app/oracle/copy/cf_D-TEST_id-2066695660_1tqek8bd
+        Tag: TAG20150814T234341
+Tablespaces
+To list backups of a tablespace use the LIST BACKUP OF TABLESPACE command. For example:
+
+RMAN> LIST BACKUP OF TABLESPACE USERS;
+Incarnations
+The LIST INCARNATION command shows the incarnations of the database. Note that multiple incarnations may share the same database ID.
+
+RMAN> LIST INCARNATION;
+
+List of Database Incarnations
+DB Key  Inc Key DB Name  DB ID            STATUS  Reset SCN  Reset Time
+------- ------- -------- ---------------- --- ---------- ----------
+1       1       TEST     2066695660       PARENT  1          17-SEP-11
+2       2       TEST     2066695660       PARENT  995548     30-NOV-11
+3       3       TEST     2066695660       ORPHAN  1190860    09-FEB-12
+4       4       TEST     2066695660       CURRENT 1190860    09-FEB-12
