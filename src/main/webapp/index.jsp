@@ -1,5 +1,5 @@
 <html>
 <body>
-<h2>Hello World first page Python project </h2>
+<h2> Testing complete CI/CD pipeline in another project i.e. python!! </h2>
 </body>
 </html>
